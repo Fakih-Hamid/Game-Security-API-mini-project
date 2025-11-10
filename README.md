@@ -114,20 +114,4 @@ docker compose up --build
 
 The service becomes available at `http://localhost:5000`. Persistence is backed by a volume-mounted `instance/` directory for the SQLite file.
 
-## Architecture Notes
-
-- `app/services/` encapsulates detection logic for re-use across routes and background jobs.
-- `app/utils/` contains cross-cutting helpers: configuration, auth, database bootstrapping, and rate limiting.
-- Logging is structured and ready for aggregation pipelines like CloudWatch, Splunk, or ELK.
-- Sample data simulates live telemetry with abnormal headshot rates, sub-100ms reaction times, and skill spikes.
-
-Future enhancements geared toward AAA scale:
-
-- Replace SQLite with managed Postgres or Aurora, paired with SQL migrations.
-- Swap in Redis or Memcached for distributed rate limiting and token revocation.
-- Integrate a streaming platform (Kafka/Kinesis) for near real-time log ingestion.
-- Harden authentication with OAuth2 or internal IAM providers.
-- Add background workers (Celery/RQ) for asynchronous anomaly detection and alert routing.
-- Layer Grafana dashboards and alerting pipelines on top of the analytics endpoints.
-
 
