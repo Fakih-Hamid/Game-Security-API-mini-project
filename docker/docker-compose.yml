@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    environment:
+      - FLASK_ENV=production
+      - FLASK_SECRET=${FLASK_SECRET:-change-me}
+      - JWT_SECRET=${JWT_SECRET:-super-secret-signing-key}
+      - SERVICE_USERNAME=${SERVICE_USERNAME:-security_console}
+      - SERVICE_PASSWORD=${SERVICE_PASSWORD:-letmein123}
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../instance:/opt/game-security-api/instance
+    restart: unless-stopped
+
