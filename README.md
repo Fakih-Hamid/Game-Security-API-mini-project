@@ -1,6 +1,6 @@
 # Game Security API
 
-An anti-cheat monitoring platform built for security teams at studios like Blizzard to ingest gameplay telemetry, evaluate live threats, and surface actionable insights for analysts.
+An anti-cheat monitoring platform built for security teams to ingest gameplay telemetry, evaluate live threats, and surface actionable insights for analysts.
 
 ## Highlights
 
@@ -121,8 +121,6 @@ The service becomes available at `http://localhost:5000`. Persistence is backed 
 - Logging is structured and ready for aggregation pipelines like CloudWatch, Splunk, or ELK.
 - Sample data simulates live telemetry with abnormal headshot rates, sub-100ms reaction times, and skill spikes.
 
-## Scaling to Blizzard-Class Ops
-
 Future enhancements geared toward AAA scale:
 
 - Replace SQLite with managed Postgres or Aurora, paired with SQL migrations.
@@ -132,7 +130,4 @@ Future enhancements geared toward AAA scale:
 - Add background workers (Celery/RQ) for asynchronous anomaly detection and alert routing.
 - Layer Grafana dashboards and alerting pipelines on top of the analytics endpoints.
 
----
-
-Built to showcase practical anti-cheat monitoring capabilities while remaining approachable for portfolio review and rapid prototyping.
 
